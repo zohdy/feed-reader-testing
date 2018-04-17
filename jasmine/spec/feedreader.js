@@ -52,26 +52,27 @@ $(function() {
     });
 
 
-    /* Write a test that ensures the menu element is
-     * hidden by default. You'll have to analyze the HTML and
-     * the CSS to determine how we're performing the
-     * hiding/showing of the menu element.
-     */
+
     describe('The menu', function() {
 
       const documentBody = document.body
       const menu = document.querySelector('.menu-icon-link');
 
+      /* Write a test that ensures the menu element is
+       * hidden by default. You'll have to analyze the HTML and
+       * the CSS to determine how we're performing the
+       * hiding/showing of the menu element.
+       */
       it('is hidden by default', function() {
         expect(documentBody.className).toContain('menu-hidden');
       });
+
 
       /* Write a test that ensures the menu changes
        * visibility when the menu icon is clicked. This test
        * should have two expectations: does the menu display when
        * clicked and does it hide when clicked again.
        */
-
       it('toggles between hide and show', function() {
         menu.click();
         expect(document.className).not.toContain('menu-hidden');
@@ -81,12 +82,6 @@ $(function() {
     });
 
 
-    /* Write a test that ensures when the loadFeed
-     * function is called and completes its work, there is at least
-     * a single .entry element within the .feed container.
-     * Remember, loadFeed() is asynchronous so this test will require
-     * the use of Jasmine's beforeEach and asynchronous done() function.
-     */
     describe('Initial Entries', function() {
       beforeEach(function(done) {
         loadFeed(0, function() {
@@ -94,7 +89,13 @@ $(function() {
         });
       });
 
-      it('loadfeed with single entry', function(done) {
+      /* Write a test that ensures when the loadFeed
+       * function is called and completes its work, there is at least
+       * a single .entry element within the .feed container.
+       * Remember, loadFeed() is asynchronous so this test will require
+       * the use of Jasmine's beforeEach and asynchronous done() function.
+       */
+      it('container has at least 1 entry', function(done) {
         const entryCount = document.querySelector('.feed').getElementsByClassName('entry').length;
         expect(entryCount).toBeGreaterThan(0);
         done();
@@ -102,10 +103,7 @@ $(function() {
     });
 
 
-    /* Write a test that ensures when a new feed is loaded
-     * by the loadFeed function that the content actually changes.
-     * Remember, loadFeed() is asynchronous.
-     */
+
     describe('New Feed Selection', function() {
       let initialFeed = '';
       let updatedFeed = '';
@@ -120,7 +118,11 @@ $(function() {
         });
       });
 
-      it('Content is changed, when new feed is loaded', function(done) {
+      /* Write a test that ensures when a new feed is loaded
+       * by the loadFeed function that the content actually changes.
+       * Remember, loadFeed() is asynchronous.
+       */
+      it('content is changed, when another feed is selected', function(done) {
         expect(initialFeed).not.toBe(updatedFeed);
         done();
       });
