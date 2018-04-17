@@ -6,22 +6,21 @@ This Project is provided by the Udacity Frontend Nanodegree Course. The main goa
 
 * [Installation](#installation)
 * [References](#references)
-* [Built With](#builtwith)
+* [BuiltWith](#builtwith)
 * [Author](#author)
 * [Version](#version)
 
 ## Installation
 
-* Clone or Download the Project.
-* Choose your download preference, "Open in Desktop" or "Download ZIP"
-* Open the newly downloaded folder and run the index.html file in your browser
+* [Clone](https://github.com/zohdy/feed-reader-testing.git) or [Download](https://github.com/zohdy/feed-reader-testing/archive/master.zip) the Project.
+* Run the `index.html` file in your favorite browser
 
 ## References
 
 * [Jasmine](https://jasmine.github.io/)
 * [Udacity](https://udacity.com/)
 
-## Built With
+## BuiltWith
 
 HTML5, CSS3, JavaScript, jQuery, and Jasmine
 
@@ -31,4 +30,4 @@ Udacity / Patrick Peter Zohdy
 
 ## Version
 
-* 1.0 - Original Commit
+1.0
