@@ -6,13 +6,13 @@ This Project is provided by the Udacity Frontend Nanodegree Course. The main goa
 
 * [Installation](#installation)
 * [References](#references)
-* [Built With](#built with)
+* [Built With](#builtwith)
 * [Author](#author)
 * [Version](#version)
 
 ## Installation
 
-* Click the green "Clone or download button"
+* Clone or Download the Project.
 * Choose your download preference, "Open in Desktop" or "Download ZIP"
 * Open the newly downloaded folder and run the index.html file in your browser
 
