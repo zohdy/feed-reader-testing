@@ -22,8 +22,7 @@ $(function() {
          * page?
          */
         it('are defined', function() {
-            expect(allFeeds).toBeDefined();
-            expect(allFeeds.length).not.toBe(0);
+            expect(allFeeds).toBeTruthy(); //'toBeTruthy' covers empty strings and 'undefined'
         });
 
 
@@ -33,8 +32,8 @@ $(function() {
          */
          it('urls are not empty and defined', function() {
            allFeeds.forEach(function(feed) {
-             expect(feed.url).toBeDefined();
-             expect(feed.url.length).not.toBe(0);
+             expect(feed.url).toBeTruthy(); //'toBeTruthy' covers empty strings and 'undefined'
+             // expect(feed.url).toMatch(/#\b(([\w-]+://?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))#iS/); Error is thrown here ?!
            });
          });
 
@@ -45,8 +44,7 @@ $(function() {
          */
          it('name is defined and note empty', function() {
            allFeeds.forEach(function(feed) {
-             expect(feed.name).toBeDefined();
-             expect(feed.name.length).not.toBe(0);
+             expect(feed.name).toBeTruthy();
            });
          });
     });
@@ -54,19 +52,14 @@ $(function() {
 
 
     describe('The menu', function() {
-
-      const documentBody = document.body
-      const menu = document.querySelector('.menu-icon-link');
-
       /* Write a test that ensures the menu element is
        * hidden by default. You'll have to analyze the HTML and
        * the CSS to determine how we're performing the
        * hiding/showing of the menu element.
        */
       it('is hidden by default', function() {
-        expect(documentBody.className).toContain('menu-hidden');
+        expect($('body').hasClass('menu-hidden')).toBe(true);
       });
-
 
       /* Write a test that ensures the menu changes
        * visibility when the menu icon is clicked. This test
@@ -74,10 +67,12 @@ $(function() {
        * clicked and does it hide when clicked again.
        */
       it('toggles between hide and show', function() {
-        menu.click();
-        expect(document.className).not.toContain('menu-hidden');
-        menu.click();
-        expect(documentBody.className).toContain('menu-hidden');
+        var hamburgerMenu = $('.menu-icon-link');
+
+        hamburgerMenu.click();
+        expect($('body').hasClass('menu-hidden')).toBe(false);
+        hamburgerMenu.click();
+        expect($('body').hasClass('menu-hidden')).toBe(true);
       });
     });
 
@@ -96,7 +91,7 @@ $(function() {
        * the use of Jasmine's beforeEach and asynchronous done() function.
        */
       it('container has at least 1 entry', function(done) {
-        const entryCount = document.querySelector('.feed').getElementsByClassName('entry').length;
+        const entryCount = $('.feed .entry').length;
         expect(entryCount).toBeGreaterThan(0);
         done();
       });
